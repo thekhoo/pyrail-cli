@@ -1,0 +1,62 @@
+[project]
+name = "pyrail-cli"
+version = "0.1.0"
+description = "Python CLI tool wrapper for the Pyrail SDK"
+readme = "README.md"
+authors = [
+  { name = "Christopher Khoo", email = "khoojinnwei@gmail.com" },
+]
+license = {text = "MIT"}
+dependencies = ["pyrail-uk", "textual", "cloup"]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+repository = "https://github.com/thekhoo/pyrail-cli"
+
+[project.scripts]
+pyrail = "cli.handlers.pyrail:pyrail"
+
+[project.optional-dependencies]
+development = [
+  # unit tests
+  'pytest',
+  'pytest-sugar',
+  # linters
+  'pyrefly',
+  'ruff',
+  'black',
+  'isort'
+]
+local=["boto3", "boto3-stubs[ssm]", "python-dotenv"]
+deploy=["build", "twine"]
+
+
+[tool.setuptools.packages.find]
+exclude = ["tests"]
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+# Directories to scan
+include = ["pyrail_uk/**/*.py"]
+select = ["I"]  # Enable import sorting
+line-length = 120
+
+# Import sorting configuration
+[tool.ruff.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+relative-imports-order = "closest-to-furthest"
+
+[tool.pyrefly]
+project-includes=["pyrail_uk/**/*.py"]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
