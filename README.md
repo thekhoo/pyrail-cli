@@ -9,6 +9,8 @@ CLI tool that uses the Pyrail-uk SDK to get trains from National Rail APIs.
 
 ## Guide
 
+> To launch the CLI app:
+
 ```bash
-python -m textual
+pyrail
 ```
