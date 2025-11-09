@@ -19,7 +19,7 @@ classifiers = [
 repository = "https://github.com/thekhoo/pyrail-cli"
 
 [project.scripts]
-pyrail = "cli.handlers.pyrail:pyrail"
+pyrail = "app.main:run"
 
 [project.optional-dependencies]
 development = [
@@ -40,13 +40,13 @@ deploy=["build", "twine"]
 exclude = ["tests"]
 
 [tool.black]
-line-length = 120
+line-length = 100
 
 [tool.ruff]
 # Directories to scan
-include = ["pyrail_uk/**/*.py"]
+include = ["app/**/*.py"]
 select = ["I"]  # Enable import sorting
-line-length = 120
+line-length = 100
 
 # Import sorting configuration
 [tool.ruff.isort]
@@ -55,7 +55,7 @@ force-wrap-aliases = true
 relative-imports-order = "closest-to-furthest"
 
 [tool.pyrefly]
-project-includes=["pyrail_uk/**/*.py"]
+project-includes=["app/**/*.py"]
 
 [build-system]
 requires = ["setuptools>=42", "wheel"]
