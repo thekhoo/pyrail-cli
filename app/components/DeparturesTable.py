@@ -1,6 +1,7 @@
 from typing import Iterable, Sequence
 
 from pyrail_uk.service.types import TrainService, TrainStatus
+from textual.coordinate import Coordinate
 from textual.reactive import reactive
 from textual.widget import Widget
 from textual.widgets import DataTable
@@ -58,3 +59,6 @@ class DeparturesTable(DataTable):
 
         rows = [self.parse_row(service) for service in self.service_data]
         self.add_rows(rows)
+
+    def on_data_table_row_selected(self, event: DataTable.RowHighlighted):
+        pass

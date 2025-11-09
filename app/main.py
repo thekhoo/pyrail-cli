@@ -23,7 +23,6 @@ class PyrailApp(App):
 
     def compose(self) -> ComposeResult:
         yield Header()
-        # yield DeparturesTable(columns=["Time", "Destination", "Status", "Platform"])
         yield DeparturesInfo()
         yield Footer()
 
